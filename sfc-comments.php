@@ -352,3 +352,16 @@ function sfc_comm_fill_in_fields($comment_post_ID) {
 		}
 	}
 }
+
+// Add FB class to author link
+add_filter('get_comment_author_link', 'sfc_comment_author_link');
+function sfc_comment_author_link($html) {
+	if (preg_match('/facebook\.com\/[0-9a-zA-Z]+/', $html)) {
+		if (preg_match('/<a[^>]* class=[^>]+>/', $html)) {
+			return preg_replace('/(<a[^>]* class=[\'"]?)/', '\\1facebook_link ' , $html );
+		} else {
+			return preg_replace('/(<a[^>]*)/', '\\1 class="facebook_link"' , $html );
+		}
+	}
+	return $html;
+}
