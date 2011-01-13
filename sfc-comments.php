@@ -4,7 +4,7 @@ Plugin Name: SFC - Comments
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Allow users to leave comments using their Facebook info (without their logging into WordPress itself).
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

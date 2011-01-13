@@ -4,7 +4,7 @@ Plugin Name: SFC - Login
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Integrates Facebook Login and Authentication to WordPress. Log into your WordPress account with your Facebook credentials.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 
@@ -107,6 +107,7 @@ add_action('wp_ajax_update_fbuid', 'sfc_login_ajax_update_fbuid');
 function sfc_login_ajax_update_fbuid() {
 	$options = get_option('sfc_options');
 	$user = wp_get_current_user();
+	$fbuid = trim($_POST['fbuid']);
 	update_usermeta($user->ID, 'fbuid', $fbuid);
 	echo 1;
 	exit();
@@ -185,13 +186,15 @@ add_action('wp_logout','sfc_login_logout');
 function sfc_login_logout() {
 	$options = get_option('sfc_options');	
 	
+	$redirect_to = !empty( $_REQUEST['redirect_to'] ) ? $_REQUEST['redirect_to'] : wp_login_url().'?loggedout=true';
+	
 	// load facebook platform
 	include_once 'facebook-platform/facebook.php';
 	
 	$fb=new Facebook($options['api_key'], $options['app_secret']);
 	$fbuid=$fb->get_loggedin_user();
 	if ($fbuid) {
-		$fb->logout(wp_login_url().'?loggedout=true');
+		$fb->logout($redirect_to);
 	}
 }
 
@@ -204,6 +207,16 @@ function sfc_login_featureloader() {
 }
 
 add_action('login_form','sfc_add_base_js');
+
+// add the fb icon to the admin bar
+add_filter('admin_user_info_links','sfc_login_admin_header');
+function sfc_login_admin_header($links) {
+	$user = wp_get_current_user();
+	$fbuid = get_user_meta($user->ID, 'fbuid', true);
+	$icon = plugins_url('/images/fb-icon.png', __FILE__);
+	if ($fbuid) $links[6]="<a href='http://www.facebook.com/profile.php?id=$fbuid'><img src='$icon' /></a>";
+	return $links;
+}
 
 /*
 // generate facebook avatar code for users who login with Facebook

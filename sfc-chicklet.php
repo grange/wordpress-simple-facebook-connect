@@ -4,7 +4,7 @@ Plugin Name: SFC - Chicklet
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Creates a chicklet for showing fan count of your app/page on FB.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

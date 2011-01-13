@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=otto%
 Tags: facebook, connect, simple, otto, otto42, javascript, comments, share, status
 Requires at least: 3.0
 Tested up to: 3.1
-Stable tag: 0.24
+Stable tag: 0.25
 
 == Description ==
 
@@ -157,24 +157,7 @@ That should be enough to get you started.
 
 = The publish code doesn't process the NextGen gallery shortcodes! =
 
-Well, actually, the publish code would process those shortcodes, if NextGen Gallery wasn't trying to be so bloody clever.
-
-There's a bit of code in nggallery.php that looks like this:
-// Load backend libraries
-if ( is_admin() ) {	
-	require_once (dirname (__FILE__) . '/admin/admin.php');
-	require_once (dirname (__FILE__) . '/admin/media-upload.php');
-	$this->nggAdminPanel = new nggAdminPanel();
-// Load frontend libraries							
-} else {
-	require_once (dirname (__FILE__) . '/lib/navigation.php');
-	require_once (dirname (__FILE__) . '/nggfunctions.php');
-	require_once (dirname (__FILE__) . '/lib/shortcodes.php');
-}	
-
-Notice that it doesn't load the shortcodes.php and nggfunctions.php files and such in the admin sections? That's why those shortcodes don't get processed. Copy those lines up into the is_admin section too and it should work. 
-
-If you're the author of the Nextgen Gallery plugin, why not adjust your plugin so the shortcodes work everywhere? Some other plugins might want to know what images are inside the posts too, you know. This plugin tries to process shortcodes to get what the post will actually look like on the page, but if your shortcode source code isn't loaded, then it can't do that.
+Upgrade NextGen Gallery to 1.60 or later.
 
 = How do I use this with multi-site across subdomains/subdirectories? =
 
@@ -218,19 +201,19 @@ Email me if you have problems... But only if you're also willing to help solve t
 
 == Upgrade Notice ==
 
-= 0.24 =
-* Version 0.23 has a minor error in it that will prevent some parts of SFC from working on some sites. This is a bug fix release only. It has no functional changes.
-
-= 0.21 =
-* Multi-Site support! Read the readme for more info.
-
-= 0.20 = 
-* This version adds correct and updated OpenGraph meta data to your site. If you've manually set your og:metadata in the theme, you'll want to remove it.
-
-= 0.19 = 
-* Interim bug-fix release. No major new feaures.
+= 0.25 =
+* Sorry for yet another update, but the UTF8 publish bug affects a lot of international users, so I have to get it out there ASAP.
 
 == Changelog ==
+
+= 0.26 =
+* SFC-Login: Profile connection fix
+* SFC-Base: SSL admin fix (thanks to jwz)
+* SFC-Publish: Squeeze out max possible number of chars (jwz)
+
+= 0.25 =
+* Fix UTF-8 encoding problem for non-English publishing.
+* Add FB Icon to username for FB connected users
 
 = 0.24 =
 * Fix missing xd_receiver URL.

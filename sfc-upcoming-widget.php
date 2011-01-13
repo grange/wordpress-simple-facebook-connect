@@ -4,7 +4,7 @@ Plugin Name: SFC - Upcoming Events Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-upcoming/
 Description: Shows a list of upcoming events (for a user, group, fan page, or application) in the sidebar.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

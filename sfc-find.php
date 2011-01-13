@@ -4,7 +4,7 @@ Plugin Name: SFC - Find us on Facebook Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Adds a "Find us on Facebook" image to your sidebar, with a link to your Facebook Page.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 
