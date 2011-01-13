@@ -38,7 +38,7 @@ if ($reload) $sets['reloadIfSessionStateChanged'] = true;
 ?>
 <script type="text/javascript">
 FB_RequireFeatures(["XFBML"], function() {
-	FB.init("<?php echo $key; ?>", "<?php echo home_url('/?xd_receiver=1'); ?>", <?php echo json_encode($sets); ?>);
+	FB.init("<?php echo $key; ?>", "<?php echo home_url('/?xd_receiver=1', (is_ssl() ? "https" : "http") ); ?>", <?php echo json_encode($sets); ?>);
 });
 </script>
 <?php
@@ -257,7 +257,7 @@ the application, as that is not optional. However, you can use a Fan Page for sp
 SFC plugin, such as the Fan Box, the Publisher, and the Chicklet.', 'sfc'); ?></p>
 
 <p><?php _e('If you have a <a href="http://www.facebook.com/pages/manage/">Fan Page</a> that you want to use for 
-your site, enter the ID of the page here. Most users should leave this blank.', 'sfc'); ?></p>
+your site, enter the ID <strong>number</strong> of the page here. Most users should leave this blank.', 'sfc'); ?></p>
 
 <?php
 	echo "<input type='text' id='sfcfanpage' name='sfc_options[fanpage]' value='{$options['fanpage']}' size='40' />";

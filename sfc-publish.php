@@ -4,7 +4,7 @@ Plugin Name: SFC - Publish
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Allows you to share your posts to your Facebook Application page. Activate this plugin, then look on the Edit Post pages for Facebook publishing buttons.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 
@@ -163,12 +163,12 @@ function sfc_publish_make_excerpt($text) {
 	$text = wp_strip_all_tags($text);
 	$text = str_replace(array("\r\n","\r","\n"),' ',$text);
 	$excerpt_more = apply_filters('excerpt_more', '[...]');
-	$text = html_entity_decode($text, ENT_QUOTES, 'UTF-8'); // added to try to fix annoying &entity; stuff (jwz: also do UTF-8 entities)
+	$excerpt_more = html_entity_decode($excerpt_more, ENT_QUOTES, 'UTF-8');
+	$text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
 
-	// jwz: Facebook has a hard limit of 1000 characters
-        $max = apply_filters('sfc_excerpt_length',1000);
+        $max = min(1000,apply_filters('sfc_excerpt_length',1000));
         $max -= strlen ($excerpt_more) + 1;
-        $max -= strlen ('</fb:intl>') * 2;
+        $max -= strlen ('</fb:intl>') * 2 - 1;
         
 	$text = substr($text, 0, $max);
 	$words = explode(' ', $text);
@@ -176,7 +176,7 @@ function sfc_publish_make_excerpt($text) {
 	array_push ($words, $excerpt_more);
 	$text = implode(' ', $words);
         
-	return utf8_encode($text);
+	return $text;
 }
 
 function sfc_publish_meta_box( $post ) {

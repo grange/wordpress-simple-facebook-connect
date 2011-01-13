@@ -4,7 +4,7 @@ Plugin Name: SFC - Activity Feed Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Create an Activity Feed for your sites sidebar.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

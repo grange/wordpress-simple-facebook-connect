@@ -4,7 +4,7 @@ Plugin Name: SFC - Connect Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Shows a "Connect with Facebook" button in the sidebar which will log you into the site (should be used with SFC-Login plugin).
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

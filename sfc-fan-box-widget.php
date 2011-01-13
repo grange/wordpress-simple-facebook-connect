@@ -4,7 +4,7 @@ Plugin Name: SFC - Fan Box Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Create a Fan Box for your sites sidebar.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

@@ -4,7 +4,7 @@ Plugin Name: SFC - User Status Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Display your FB User Status in the sidebar, simply.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 

@@ -4,7 +4,7 @@ Plugin Name: SFC - Bookmark Widget
 Plugin URI: http://ottopress.com/wordpress-plugins/simple-facebook-connect/
 Description: Shows a "Add Bookmark" button in the sidebar which allows users to add the site to their bookmark bar in Facebook.
 Author: Otto
-Version: 0.24
+Version: 0.25
 Author URI: http://ottodestruct.com
 License: GPL2
 
