@@ -350,7 +350,16 @@ function sfc_comm_fill_in_fields($comment_post_ID) {
 			$email = $email[0]['email'];
 			$_POST['email'] = $email; 
 		}
+
+		// approve comment
+		add_filter('pre_comment_approved', 'sfc_comm_approve');
 	}
+}
+
+function sfc_comm_approve($approved) {
+	// once only
+	remove_filter('pre_comment_approved', 'sfc_comm_approve' );
+	return '1';
 }
 
 // Add FB class to author link
